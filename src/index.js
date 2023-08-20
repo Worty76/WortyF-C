@@ -2,17 +2,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const path = require("path");
+const routers = require("./routes")
 
+require("body-parser");
 require("dotenv").config();
-
-// Routers
-const userRouter = require("./routes/userRouter");
-const postRouter = require("./routes/postRouter");
-const topicRouter = require("./routes/topicRouter");
-// PORT
-const PORT = process.env.PORT;
 
 // Connection Config
 try {
@@ -36,11 +30,4 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(`${__dirname}/public`));
 
-// End-points
-app.use("/api/user", userRouter);
-app.use("/api/post", postRouter);
-app.use("/api/topic", topicRouter);
-
-app.listen(PORT, () => {
-  console.log(`Server is running on http:localhost:${PORT}`);
-});
+routers(app);
