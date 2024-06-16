@@ -72,9 +72,11 @@ export default function Profile() {
 
     let imageData = new FormData();
     imageData.append("image", e.target.files[0]);
-    console.log(e.target.files[0]);
 
     file.preview = URL.createObjectURL(file);
+
+    // Change avatar_url attribute in SessionStorage
+    auth.updateAvatarUrl(file.preview);
     setImage(file);
 
     changeAvatar(
@@ -86,9 +88,10 @@ export default function Profile() {
       },
       imageData
     ).then((data) => {
+      window.location.reload(true);
       if (data.error) {
         console.log(data.error);
-      } 
+      }
     });
   };
 
@@ -112,7 +115,7 @@ export default function Profile() {
               <ListItem sx={{ display: "flex", justifyContent: "center" }}>
                 <ListItemAvatar>
                   <Avatar
-                    src={image ? image : `http://localhost:8000/${user.avatar_url}`}
+                    src={image ? image.preview : `http://localhost:8000/${user.avatar_url}`}
                   />
                 </ListItemAvatar>
               </ListItem>
@@ -121,6 +124,7 @@ export default function Profile() {
               </ListItem>
               {auth.isAuthenticated() &&
               auth.isAuthenticated().user._id === user._id ? (
+                <>
                 <ListItem>
                   <form encType="multipart/form-data" method="POST">
                     <input
@@ -133,7 +137,10 @@ export default function Profile() {
                       name="myFile"
                       id="icon-button-file"
                     />
-                    <label htmlFor="icon-button-file">
+                  </form>
+                </ListItem>
+                <div style={{paddingTop: "10px", paddingBottom: "10px", width: "100%", display: "grid", placeItems: "center"}}>
+                  <label htmlFor="icon-button-file">
                       <Button
                         sx={{ margin: "0 auto" }}
                         variant="contained"
@@ -142,8 +149,8 @@ export default function Profile() {
                         Change avatar
                       </Button>
                     </label>
-                  </form>
-                </ListItem>
+                </div>
+                </>
               ) : null}
               <Divider />
               <List>

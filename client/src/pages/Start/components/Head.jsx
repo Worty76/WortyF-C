@@ -68,8 +68,7 @@ export default function Head() {
               to build a helpful community.
             </Typography>
             <p>
-              A place where people can share their ideas, opinions to help each
-              other.
+              A place where people can trade, buy, sell their stuffs online easily
             </p>
             <Button variant="contained" onClick={handleNavigation}>
               Join now

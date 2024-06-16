@@ -29,7 +29,7 @@ export default function Footer() {
           <ListItemText
             primary={
               <Typography color={"white"} sx={{ paddingLeft: "10px" }}>
-                This website is created by{" "}
+                This website is created by {" "}
                 <b>
                   <a
                     style={{

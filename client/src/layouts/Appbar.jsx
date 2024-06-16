@@ -39,6 +39,8 @@ export default function Appbar() {
     setAnchorElUser(null);
   };
 
+  console.log(auth.isAuthenticated())
+
   const pages = [
     { name: "Home", URL: "home" },
     { name: "Midmans", URL: "midmans" },
@@ -142,13 +144,9 @@ export default function Appbar() {
               <Tooltip title="Open options">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   {auth.isAuthenticated().user ? (
-                    <Avatar
-                      alt={auth.isAuthenticated().user.username}
-                      src={
-                        `http://localhost:8000/` + auth.isAuthenticated()?.user?.avatar_url
-                      }
-                    />
-                  ) : (
+                  auth.isAuthenticated().user.avatar_url.includes("blob") ? 
+                  <Avatar src={auth.isAuthenticated().user.avatar_url} alt={auth.isAuthenticated().user.avatar_url} /> : <Avatar src={`http://localhost:8000/${auth.isAuthenticated().user.avatar_url}`}/>)
+                   : (
                     <Avatar />
                   )}
                 </IconButton>

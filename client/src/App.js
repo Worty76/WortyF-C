@@ -20,7 +20,6 @@ function App() {
 
       {/* Header */}
       <Appbar />
-
       {/* Body */}
       <Routes>
         <Route exact path="/" element={<Index />} />
@@ -35,7 +34,7 @@ function App() {
       </Routes>
       
       {/* Footer */}
-      {/* <ChatBotHelper/> */}
+      <ChatBotHelper/>
       {/* <Footer /> */}
     </div>
   );

@@ -43,6 +43,8 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(posts)
+
   return (
     <div className={classes.root}>
       <Discussions posts={posts} setPosts={setPosts} />

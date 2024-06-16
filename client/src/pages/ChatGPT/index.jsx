@@ -7,6 +7,8 @@ const systemMessage = { //  Explain things like you're talking to a software pro
   "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
 }
 
+const apiKey = "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"
+
 function ChatGPT() {
   const [messages, setMessages] = useState([
     {
@@ -65,7 +67,7 @@ function ChatGPT() {
     {
       method: "POST",
       headers: {
-        "Authorization": "Bearer " + "exampleKey",
+        "Authorization": "Bearer " + apiKey,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(apiRequestBody)
@@ -83,7 +85,7 @@ function ChatGPT() {
 
   return (
     <div>
-      <div style={{ height: "100vh", width: "70vw", margin: "0 auto" }}>
+      <div style={{ width: "1000px", margin: "0 auto", height: "93vh"}}>
         <MainContainer>
           <ChatContainer>       
             <MessageList
@@ -95,7 +97,7 @@ function ChatGPT() {
                 return <Message key={index} model={message} />
               })}
             </MessageList>
-            <MessageInput placeholder="Type message here" onSend={handleSend} />        
+            <MessageInput placeholder="Type message here" onSend={(message) => handleSend(message)} />
           </ChatContainer>
         </MainContainer>
       </div>
