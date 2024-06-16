@@ -7,8 +7,6 @@ const systemMessage = { //  Explain things like you're talking to a software pro
   "role": "system", "content": "Explain things like you're talking to a software professional with 2 years of experience."
 }
 
-const apiKey = "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"
-
 function ChatGPT() {
   const [messages, setMessages] = useState([
     {
@@ -67,7 +65,7 @@ function ChatGPT() {
     {
       method: "POST",
       headers: {
-        "Authorization": "Bearer " + apiKey,
+        "Authorization": "Bearer " + "exampleKey",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(apiRequestBody)
