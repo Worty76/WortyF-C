@@ -16,7 +16,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signIn } from "./authApi";
 import auth from "../../helpers/auth";
-import discussionImg from "../../images/discussions.png"
+import ecommerceImg from "../../images/ecommerce.png"
 
 // const useStyles = makeStyles({
 //   root: {
@@ -87,7 +87,7 @@ export default function SignIn() {
         sm={4}
         md={7}
         sx={{
-          backgroundImage: `url(${discussionImg})`,
+          backgroundImage: `url(${ecommerceImg})`,
           backgroundRepeat: 'no-repeat',
           backgroundColor: (t) =>
             t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -154,7 +154,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Typography  variant="body2">
+                <Typography component={Link} to="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Typography>
               </Grid>

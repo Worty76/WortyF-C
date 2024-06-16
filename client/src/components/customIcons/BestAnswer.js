@@ -18,7 +18,7 @@ export default function BestAnswer() {
           fontWeight: "700",
         }}
       >
-        Best answer
+        Bought
       </div>
     </div>
   );

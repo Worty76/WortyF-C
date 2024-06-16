@@ -146,8 +146,8 @@ export default function Appbar() {
                   {auth.isAuthenticated().user ? (
                   auth.isAuthenticated().user.avatar_url.includes("blob") ? 
                   <Avatar src={auth.isAuthenticated().user.avatar_url} alt={auth.isAuthenticated().user.avatar_url} /> : <Avatar src={`http://localhost:8000/${auth.isAuthenticated().user.avatar_url}`}/>)
-                   : (
-                    <Avatar />
+                  : (
+                  <Avatar />
                   )}
                 </IconButton>
               </Tooltip>

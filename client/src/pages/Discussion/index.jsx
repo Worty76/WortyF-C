@@ -306,7 +306,7 @@ export default function Discussions({ posts, setPosts }) {
             >
               <Paper
                 className={classes.post}
-                sx={{ border: post.solved ? "1px #38E54D solid" : "none" }}
+                sx={{ border: post.solved ? "1px red solid" : "none" }}
               >
                 <Box sx={{ flexGrow: 0, display: "flex" }}>
                   <ListItem>
@@ -416,7 +416,7 @@ export default function Discussions({ posts, setPosts }) {
                   sx={{ backgroundColor: "#3c52b2", color: "#fff" }}
                   onClick={handleOpen}
                 >
-                  Start a new discussion
+                  Create a new post
                 </Button>
               ) : (
                 <Button
@@ -430,7 +430,7 @@ export default function Discussions({ posts, setPosts }) {
                   LinkComponent={Link}
                   to={"/signin"}
                 >
-                  Sign in to start a new discussion
+                  Sign in to create a new post
                 </Button>
               )}
             </ListItem>
@@ -473,7 +473,7 @@ export default function Discussions({ posts, setPosts }) {
                     fontWeight: "300",
                   }}
                 >
-                  There are many people are waiting for your new question
+                  Fill the blank fields to post 
                 </h3>
               </ListItem>
               <ListItem>

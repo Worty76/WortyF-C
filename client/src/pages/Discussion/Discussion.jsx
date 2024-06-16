@@ -413,7 +413,7 @@ export default function Discussion() {
                   ))}
               </ListItem>
               <Toolbar disableGutters>
-                <Box sx={{ flexGrow: 1 }}>
+                <Box sx={{ flexGrow: 1}}>
                   <List>
                     <ListItem>
                       {auth.isAuthenticated() &&
@@ -480,12 +480,19 @@ export default function Discussion() {
               <Divider />
 
               {/* Comment section */}
-              <List>
-                <ListItem>
-                <TextField sx={{ width: "100%" }} label={"Your answer"} onChange={(event) => {setText(event.target.value)}} />
+              <List> 
+                <Grid container spacing={2}>
+                  <Grid item sx={{ flexBasis: '85%' }}>
+                    <TextField 
+                      fullWidth 
+                      label={"Your answer"} 
+                      onChange={(event) => setText(event.target.value)} 
+                    />
+                  </Grid>
+                  <Grid item sx={{ flexBasis: '15%', display: 'flex', alignItems: 'center' }}>
                     {auth.isAuthenticated().user ? (
                       <Button
-                        disabled={text ? false : true}
+                        disabled={!text}
                         variant="contained"
                         onClick={onCreateComment}
                       >
@@ -493,7 +500,7 @@ export default function Discussion() {
                       </Button>
                     ) : (
                       <Button
-                        disabled={text ? false : true}
+                        disabled={!text}
                         variant="contained"
                         LinkComponent={Link}
                         to="/signin"
@@ -502,8 +509,9 @@ export default function Discussion() {
                         Sign in to comment
                       </Button>
                     )}
-                </ListItem>
-              </List>
+                  </Grid>
+                </Grid>
+            </List>
               {comments &&
                 comments.map((comment) => (
                   <SingleComment
